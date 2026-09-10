@@ -7,11 +7,16 @@ internal static class Program
 {
     private static void Main()
     {
-        using Library library = new(0.2f);
-        GenerateMsStack(library);
+        Library.Go(
+            0.2f,
+            GenerateMsStack,
+            "CoaxialMS_SOFC.log",
+            true,
+            "Coaxial MS-SOFC",
+            "");
     }
 
-    private static void GenerateMsStack(Library library)
+    private static void GenerateMsStack()
     {
         const float outerDiameter = 200f;
         const float length = 180f;
@@ -19,7 +24,7 @@ internal static class Program
         const int tubeCount = 19;
         const float ringRadius = 70f;
 
-        Voxels hotbox = CreateCylinder(library, Vector3.Zero, length, outerDiameter / 2);
+        Voxels hotbox = CreateCylinder(Vector3.Zero, length, outerDiameter / 2);
 
         Voxels tubeBundle = new Voxels();
         for (int index = 0; index < tubeCount; index++)
@@ -28,7 +33,7 @@ internal static class Program
             float x = MathF.Cos(angle) * ringRadius;
             float y = MathF.Sin(angle) * ringRadius;
 
-            Voxels tube = CreateCylinder(library, new Vector3(x, y, 0), length, tubeOuterDiameter / 2);
+            Voxels tube = CreateCylinder(new Vector3(x, y, 0), length, tubeOuterDiameter / 2);
             tubeBundle += tube;
         }
 
@@ -37,11 +42,11 @@ internal static class Program
         Library.Log("STL exported successfully: CoaxialMS_SOFC_200mm.stl");
     }
 
-    private static Voxels CreateCylinder(Library library, Vector3 center, float length, float radius)
+    private static Voxels CreateCylinder(Vector3 center, float length, float radius)
     {
         Vector3 boundsMin = center - new Vector3(radius, radius, length / 2);
         Vector3 boundsMax = center + new Vector3(radius, radius, length / 2);
-        return new Voxels(library, new FiniteCylinder(center, length / 2, radius), new BBox3(boundsMin, boundsMax));
+        return new Voxels(new FiniteCylinder(center, length / 2, radius), new BBox3(boundsMin, boundsMax));
     }
 
     private sealed class FiniteCylinder : IImplicit

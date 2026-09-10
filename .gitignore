@@ -1,16 +1,15 @@
-# Build output
+#+ --------------- .NET / C# 專案規則 ---------------
+[Dd]ebug/
+[Rr]elease/
 bin/
 obj/
-
-# Visual Studio and VS Code
 .vs/
 .vscode/
-
-# User-specific files
-*.user
 *.suo
+*.user
 *.userosscache
 *.sln.docstates
+*.csproj.user
 
 # NuGet packages and generated files
 packages/
@@ -18,19 +17,6 @@ packages/
 project.lock.json
 project.fragment.lock.json
 artifacts/
-
-# Project output
-#+ --------------- .NET / C# 專案規則 ---------------
-[Dd]ebug/
-[Rr]elease/
-bin/
-obj/
-.vs/
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-*.csproj.user
 
 # --------------- PicoGK 輸出檔案 ---------------
 *.stl
@@ -51,5 +37,4 @@ __pycache__/
 *.bak
 .DS_Store
 Thumbs.db
-imgui.ini
 imgui.ini

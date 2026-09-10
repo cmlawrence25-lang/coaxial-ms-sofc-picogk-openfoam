@@ -1,29 +1,25 @@
-#+ --------------- .NET / C# 專案規則 ---------------
+# .NET / C#
 [Dd]ebug/
 [Rr]elease/
 bin/
 obj/
 .vs/
-.vscode/
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
 *.csproj.user
 
-# NuGet packages and generated files
-packages/
+# NuGet
 *.nupkg
-project.lock.json
-project.fragment.lock.json
-artifacts/
+packages/
 
-# --------------- PicoGK 輸出檔案 ---------------
+# PicoGK generated files
 *.stl
 *.vox
 *.ply
 
-# --------------- Python 後處理腳本 ---------------
+# Python
 __pycache__/
 *.pyc
 *.pyo
@@ -31,10 +27,9 @@ __pycache__/
 .env
 .venv/
 
-# --------------- Log / 臨時檔案 ---------------
+# Logs & temp
 *.log
 *.tmp
 *.bak
 .DS_Store
 Thumbs.db
-imgui.ini

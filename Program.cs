@@ -5,18 +5,18 @@ namespace CoaxialMS_SOFC;
 
 internal static class Program
 {
-    private static void Main()
+    private static void Main(string[] args)
     {
         Library.Go(
             0.2f,
-            GenerateMsStack,
+            TaskGenerateMSStack,
             "CoaxialMS_SOFC.log",
             true,
             "Coaxial MS-SOFC",
             "");
     }
 
-    private static void GenerateMsStack()
+    private static void TaskGenerateMSStack()
     {
         const float outerDiameter = 200f;
         const float length = 180f;
